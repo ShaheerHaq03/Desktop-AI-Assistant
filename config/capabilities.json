@@ -1,0 +1,112 @@
+{
+  "version": "1.0.0",
+  "description": "Capability settings control which features are enabled. Disabled capabilities will prevent related commands from executing.",
+  "last_modified": "2024-01-01T00:00:00Z",
+  "capabilities": {
+    "fs": {
+      "enabled": false,
+      "description": "File system access - read, write, and modify files",
+      "risk_level": "medium",
+      "requires_confirmation": true
+    },
+    "process_control": {
+      "enabled": false,
+      "description": "Process management - view and control running processes",
+      "risk_level": "high",
+      "requires_confirmation": true
+    },
+    "window_control": {
+      "enabled": true,
+      "description": "Window and GUI control - focus windows, click, type",
+      "risk_level": "low",
+      "requires_confirmation": false
+    },
+    "browser_control": {
+      "enabled": true,
+      "description": "Browser automation - open URLs, control web pages",
+      "risk_level": "low",
+      "requires_confirmation": false
+    },
+    "run_shell": {
+      "enabled": false,
+      "description": "Shell command execution - run system commands",
+      "risk_level": "critical",
+      "requires_confirmation": true,
+      "requires_password": true
+    },
+    "network": {
+      "enabled": true,
+      "description": "Network access - make web requests",
+      "risk_level": "low",
+      "requires_confirmation": false
+    },
+    "clipboard": {
+      "enabled": true,
+      "description": "Clipboard access - read and write clipboard content",
+      "risk_level": "low",
+      "requires_confirmation": false
+    },
+    "screenshot": {
+      "enabled": true,
+      "description": "Screen capture - take screenshots",
+      "risk_level": "low",
+      "requires_confirmation": false
+    },
+    "microphone": {
+      "enabled": true,
+      "description": "Voice input - record and process audio",
+      "risk_level": "medium",
+      "requires_confirmation": false
+    },
+    "system_info": {
+      "enabled": true,
+      "description": "System information - CPU, memory, disk usage",
+      "risk_level": "low",
+      "requires_confirmation": false
+    }
+  },
+  "safety_notes": {
+    "fs": "File system access is limited to safe paths by default. Writing outside safe paths requires user confirmation.",
+    "process_control": "Process termination is protected - system processes cannot be killed.",
+    "run_shell": "Shell commands are extremely dangerous and require explicit password confirmation.",
+    "microphone": "Voice recording data is stored locally and not transmitted externally."
+  },
+  "recommended_settings": {
+    "new_user": {
+      "fs": false,
+      "process_control": false,
+      "run_shell": false,
+      "window_control": true,
+      "browser_control": true,
+      "network": true,
+      "clipboard": true,
+      "screenshot": true,
+      "microphone": true,
+      "system_info": true
+    },
+    "power_user": {
+      "fs": true,
+      "process_control": true,
+      "run_shell": false,
+      "window_control": true,
+      "browser_control": true,
+      "network": true,
+      "clipboard": true,
+      "screenshot": true,
+      "microphone": true,
+      "system_info": true
+    },
+    "developer": {
+      "fs": true,
+      "process_control": true,
+      "run_shell": true,
+      "window_control": true,
+      "browser_control": true,
+      "network": true,
+      "clipboard": true,
+      "screenshot": true,
+      "microphone": true,
+      "system_info": true
+    }
+  }
+}

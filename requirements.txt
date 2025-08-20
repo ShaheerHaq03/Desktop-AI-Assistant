@@ -1,0 +1,36 @@
+# Core dependencies
+streamlit>=1.28.0
+psutil>=5.9.0
+pyautogui>=0.9.54
+pygetwindow>=0.0.9
+vosk>=0.3.45
+sounddevice>=0.4.6
+requests>=2.31.0
+pyperclip>=1.8.2
+python-dotenv>=1.0.0
+pytest>=7.4.0
+
+# Audio processing
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Optional Windows support
+pywin32>=306; sys_platform == "win32"
+
+# Optional browser automation (install ChromeDriver separately)
+selenium>=4.15.0
+
+# GUI support
+
+# JSON handling and validation
+jsonschema>=4.19.0
+
+# Backup and file handling
+
+# Cross-platform path handling
+
+# HTTP client for Ollama
+httpx>=0.24.0
+
+# Logging and configuration
+pyyaml>=6.0

@@ -1,0 +1,184 @@
+{
+  "version": "1.0.0",
+  "description": "Sample tasks and voice commands for the AI assistant",
+  "categories": {
+    "basic": {
+      "description": "Basic commands that work out of the box",
+      "tasks": [
+        {
+          "command": "what time is it",
+          "intent": "get_time",
+          "description": "Get current date and time"
+        },
+        {
+          "command": "show system status",
+          "intent": "get_system_info", 
+          "description": "Display CPU, memory, and disk usage"
+        },
+        {
+          "command": "help",
+          "intent": "help",
+          "description": "Show available commands and help"
+        },
+        {
+          "command": "search for python tutorials",
+          "intent": "search_web",
+          "description": "Open Google search for specified query"
+        },
+        {
+          "command": "open https://github.com",
+          "intent": "open_url",
+          "description": "Open a specific URL in browser"
+        }
+      ]
+    },
+    "window_control": {
+      "description": "Window and GUI control commands (requires window_control capability)",
+      "tasks": [
+        {
+          "command": "take screenshot",
+          "intent": "screenshot",
+          "description": "Capture current screen"
+        },
+        {
+          "command": "focus chrome",
+          "intent": "focus_window",
+          "description": "Switch to Chrome browser window"
+        },
+        {
+          "command": "type hello world",
+          "intent": "type_text",
+          "description": "Type text at cursor position"
+        },
+        {
+          "command": "click at 500, 300",
+          "intent": "click_at",
+          "description": "Click at specific screen coordinates"
+        }
+      ]
+    },
+    "app_control": {
+      "description": "Application launching commands",
+      "tasks": [
+        {
+          "command": "open notepad",
+          "intent": "open_app",
+          "description": "Launch Notepad (Windows)"
+        },
+        {
+          "command": "open chrome",
+          "intent": "open_app",
+          "description": "Launch Google Chrome browser"
+        },
+        {
+          "command": "open vscode",
+          "intent": "open_app", 
+          "description": "Launch Visual Studio Code"
+        },
+        {
+          "command": "open calculator",
+          "intent": "open_app",
+          "description": "Launch system calculator"
+        }
+      ]
+    },
+    "file_operations": {
+      "description": "File system operations (requires fs capability)",
+      "requires_capability": "fs",
+      "tasks": [
+        {
+          "command": "list files",
+          "intent": "list_files",
+          "description": "List files in current directory"
+        },
+        {
+          "command": "list files in documents",
+          "intent": "list_files",
+          "description": "List files in Documents folder"
+        },
+        {
+          "command": "read readme.txt",
+          "intent": "read_file",
+          "description": "Read contents of a text file"
+        },
+        {
+          "command": "find python files",
+          "intent": "find_file", 
+          "description": "Search for files containing 'python' in name"
+        }
+      ]
+    },
+    "process_control": {
+      "description": "Process management commands (requires process_control capability)",
+      "requires_capability": "process_control",
+      "tasks": [
+        {
+          "command": "list processes",
+          "intent": "list_processes",
+          "description": "Show running processes and resource usage"
+        },
+        {
+          "command": "kill notepad",
+          "intent": "kill_process",
+          "description": "Terminate a process by name (requires confirmation)"
+        }
+      ]
+    },
+    "advanced": {
+      "description": "Advanced commands requiring multiple capabilities",
+      "tasks": [
+        {
+          "command": "close chrome",
+          "intent": "close_app",
+          "requires_capability": "process_control",
+          "description": "Close application by terminating its process"
+        }
+      ]
+    }
+  },
+  "multilingual_examples": {
+    "spanish": [
+      "¿qué hora es?",
+      "abrir chrome",
+      "buscar tutoriales de python"
+    ],
+    "french": [
+      "quelle heure est-il?",
+      "ouvrir chrome", 
+      "chercher tutoriels python"
+    ],
+    "german": [
+      "wie spät ist es?",
+      "chrome öffnen",
+      "python tutorials suchen"
+    ]
+  },
+  "voice_tips": {
+    "recording": [
+      "Speak clearly and at normal volume",
+      "Wait for the recording indicator before speaking",
+      "Pause briefly after your command",
+      "Use simple, direct commands for best results"
+    ],
+    "commands": [
+      "Start with action words: 'open', 'show', 'list', 'find'",
+      "Be specific: 'open chrome' not just 'chrome'",
+      "Use natural language: 'what time is it' works better than 'time'",
+      "For coordinates: 'click at 100, 200' or 'click at 100 comma 200'"
+    ]
+  },
+  "troubleshooting": {
+    "voice_not_working": [
+      "Check microphone permissions",
+      "Ensure Vosk model is downloaded",
+      "Try adjusting voice settings in config",
+      "Use text input as fallback"
+    ],
+    "commands_not_executing": [
+      "Check if required capability is enabled",
+      "Verify dry-run mode is disabled for actual execution",
+      "Check application paths in app mappings",
+      "Review safety confirmation settings"
+    ]
+  }
+}

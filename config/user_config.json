@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "user_preferences": {
+    "default_editor": "vscode",
+    "default_browser": "chrome",
+    "voice_language": "en",
+    "dry_run_mode": true,
+    "auto_save_recordings": true
+  },
+  "safe_paths": [
+    "C:\\Users\\shahe\\Desktop",
+    "C:\\Users\\shahe\\Documents",
+    "C:\\Users\\shahe\\Downloads",
+    "C:\\Users\\shahe\\OneDrive\\Desktop\\Personal Projects",
+    "C:\\Users\\shahe\\Pictures",
+    "C:\\Users\\shahe\\Videos",
+    "C:\\Users\\shahe\\OneDrive\\Desktop\\Personal Projects\\Agentic ai\\agent-desktop-ai-extended"
+  ],
+  "llm_settings": {
+    "model": "gemma3:12b",
+    "temperature": 0.7,
+    "max_tokens": 1000,
+    "timeout": 30
+  },
+  "voice_settings": {
+    "sample_rate": 16000,
+    "channels": 1,
+    "silence_threshold": 0.01,
+    "max_recording_duration": 10,
+    "min_recording_duration": 1
+  },
+  "gui_settings": {
+    "theme": "light",
+    "sidebar_expanded": true,
+    "show_debug_info": false,
+    "confirmation_timeout": 30
+  },
+  "logging": {
+    "max_log_size_mb": 5,
+    "max_log_files": 5,
+    "log_level": "INFO"
+  },
+  "safety": {
+    "require_confirmation_for": [
+      "file_write_outside_safe_paths",
+      "process_termination",
+      "shell_command_execution",
+      "large_file_operations"
+    ],
+    "protected_processes": [
+      "system",
+      "kernel",
+      "init",
+      "systemd",
+      "csrss.exe",
+      "wininit.exe",
+      "winlogon.exe",
+      "lsass.exe",
+      "services.exe"
+    ],
+    "max_file_size_mb": 5,
+    "consent_expiry_days": 30
+  },
+  "integrations": {
+    "ollama_url": "http://localhost:11434",
+    "vosk_model_path": "~/.agent_desktop_ai/vosk-model",
+    "selenium_driver_path": null
+  }
+}

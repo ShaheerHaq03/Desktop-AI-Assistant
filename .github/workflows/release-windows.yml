@@ -1,0 +1,61 @@
+name: Build and Release Windows App
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Git tag to release (e.g., v1.0.0)
+        required: true
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build Windows executable
+        run: python build_windows_app.py
+
+      - name: Archive artifacts
+        run: |
+          powershell -Command "Compress-Archive -Path dist/* -DestinationPath AgentDesktopAI-windows.zip"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AgentDesktopAI-windows
+          path: AgentDesktopAI-windows.zip
+
+  release:
+    needs: build-windows
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: AgentDesktopAI-windows
+          path: .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            AgentDesktopAI-windows.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
