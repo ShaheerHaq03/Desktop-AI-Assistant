@@ -486,7 +486,6 @@ Contributions toward any of these areas are welcome—please open an issue to di
 
 ## 📷 Screenshots
 
-Place your images in `assets/` and update the filenames below.
 
 ![Launcher](assets/launcher.png)
 ![Streamlit Web Interface](assets/web-interface.png)
